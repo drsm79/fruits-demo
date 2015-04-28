@@ -2,21 +2,21 @@ require.config({
     paths: {
         jquery: '../bower_components/jquery/dist/jquery',
         pouchdb: '../bower_components/pouchdb/dist/pouchdb',
-        jqueryui: '../bower_components/jqueryui/jquery-ui',
         typeahead: '../bower_components/typeahead.js/dist/typeahead.jquery',
+        app: '../scripts/app'
     },
     shim: {
-        jqueryui: {
-            deps: ['jquery']
-        },
-        typeahead: {
-            deps: ['jquery']
-        }
+        // jqueryui: {
+        //     deps: ['jquery']
+        // },
+        // 'typeahead.js': {
+        //     deps: ['jquery']
+        // }
     }
     // enforceDefine: true
 });
 
-require(['app', 'jquery', 'pouchdb'], function (app, $, pouchdb) {
+require(['app', 'jquery', 'pouchdb', 'typeahead'], function (app, $, pouchdb, typeahead) {
     'use strict';
     app.initialize();
 });

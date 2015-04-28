@@ -1,8 +1,7 @@
 /*global define */
-define(['jquery', 'jqueryui', 'typeahead', 'pouchdb'], function() {
+define(['jquery', 'pouchdb', 'typeahead'], function($, PouchDB, ta) {
     'use strict';
     var local = new PouchDB('fruits');
-
     function addFruit () {
         local.post({'fruit': $('#fruit').val()}).then(function (argument) {
             console.log(argument);
@@ -40,14 +39,15 @@ define(['jquery', 'jqueryui', 'typeahead', 'pouchdb'], function() {
             for (var i = result.rows.length - 1; i >= 0; i--) {
                 fruits.push(result.rows[i].doc.fruit);
             };
-            console.log(fruits);
-            $('#fruit').typeahead({});
-            $('#fruit').autocomplete({
-                source: fruits,
-                appendTo: "#fruit",
-                delay: 50
-            });;
 
+            $('#fruit').typeahead({
+                minLength: 2,
+                highlight: true
+            },
+            {
+                name: 'names',
+                source: substringMatcher(fruits)
+            });
         });
     }
 
@@ -55,7 +55,8 @@ define(['jquery', 'jqueryui', 'typeahead', 'pouchdb'], function() {
 
     var initialize = function (){
         console.log('Running jQuery %s in initialize', $().jquery);
-        console.log('Running jqueryui %s in initialize', $.ui.version);
+        console.log('  typeahead: ', $.fn.typeahead);
+        // console.log('Running jqueryui %s in initialize', $.ui.version);
         console.log('Running pouchdb %s', PouchDB.version);
         primeTypeahead();
     };

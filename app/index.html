@@ -12,9 +12,62 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-
         <!-- endbuild -->
+        <style type="text/css">
+            .twitter-typeahead{
+                width: 100%;
+                background: white;
+            }
+
+            .tt-input {
+                width: 100%;
+                font-size: 21px;
+                padding: 14px 24px;
+                height: 60px;
+                background: white;
+            }
+
+            .tt-hint{
+                width: 100%;
+                font-size: 21px;
+                padding: 14px 24px;
+                height: 60px;
+                color: blue;
+            }
+
+            .tt-menu{
+                width: 100%;
+                border: 1px solid #ddd;
+            }
+
+            .tt-dataset{}
+
+            .tt-suggestion{
+                text-align: left;
+                padding-left: 30px;
+            }
+
+            .tt-suggestion:nth-child(odd){
+                background-color:#f3f3f3;
+            }
+
+            .tt-suggestion:nth-child(even){
+                background-color:#fff;
+            }
+
+            .tt-suggestion.tt-cursor{
+                background-color: blue;
+                color: white;
+            }
+
+            .tt-empty{}
+
+            .tt-open{}
+
+            .tt-cursor{}
+
+            .tt-highlight{}
+        </style>
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
@@ -24,11 +77,9 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-
         <div class="container">
             <div class="jumbotron">
                 <p class="lead">Pick a delicious fruit</p>
-
                     <div class="input-group">
                       <input class="form-control" id="fruit" placeholder="Fruit">
                       <span class="input-group-btn">
@@ -41,10 +92,6 @@
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
-        <script src="bower_components/jquery/dist/jquery.js"></script>
-        <script src="bower_components/pouchdb/dist/pouchdb.js"></script>
-        <script src="bower_components/jqueryui/jquery-ui.js"></script>
-        <script src="bower_components/typeahead.js/dist/typeahead.jquery.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
